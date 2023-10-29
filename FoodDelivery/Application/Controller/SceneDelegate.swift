@@ -56,6 +56,7 @@ extension SceneDelegate {
         tabBar.tabBar.backgroundColor = .white
         tabBar.tabBar.unselectedItemTintColor = UIColor(named: "BarUnSelected")
         tabBar.tabBar.tintColor = UIColor(named: "BarColor")
+        tabBar.tabBar.selectedItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "SFProDisplay-Medium", size: 10)!], for: .normal)
         tabBar.selectedIndex = 0
         return tabBar
     }

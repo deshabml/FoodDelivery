@@ -15,6 +15,8 @@
 		DDB4DF552AEED63F0051E49E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF542AEED63F0051E49E /* SearchViewController.swift */; };
 		DDB4DF572AEED6880051E49E /* СartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF562AEED6880051E49E /* СartViewController.swift */; };
 		DDB4DF592AEED6D80051E49E /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF582AEED6D80051E49E /* AccountViewController.swift */; };
+		DDB4DF5C2AEEF08B0051E49E /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF5B2AEEF08B0051E49E /* SF-Pro-Display-Medium.otf */; };
+		DDB4DF5E2AEEF0950051E49E /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF5D2AEEF0950051E49E /* SF-Pro-Display-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		DDB4DF542AEED63F0051E49E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DDB4DF562AEED6880051E49E /* СartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СartViewController.swift"; sourceTree = "<group>"; };
 		DDB4DF582AEED6D80051E49E /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		DDB4DF5B2AEEF08B0051E49E /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		DDB4DF5D2AEEF0950051E49E /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 		DDB4DF502AEED4290051E49E /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				DDB4DF5A2AEEF0650051E49E /* Fonts */,
 				DDB4DF422AEED1740051E49E /* Assets.xcassets */,
 				DDB4DF472AEED1740051E49E /* Info.plist */,
 			);
@@ -111,6 +116,15 @@
 				DDB4DF582AEED6D80051E49E /* AccountViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDB4DF5A2AEEF0650051E49E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4DF5D2AEEF0950051E49E /* SF-Pro-Display-Regular.otf */,
+				DDB4DF5B2AEEF08B0051E49E /* SF-Pro-Display-Medium.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +185,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB4DF5C2AEEF08B0051E49E /* SF-Pro-Display-Medium.otf in Resources */,
 				DDB4DF462AEED1740051E49E /* LaunchScreen.storyboard in Resources */,
+				DDB4DF5E2AEEF0950051E49E /* SF-Pro-Display-Regular.otf in Resources */,
 				DDB4DF432AEED1740051E49E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
