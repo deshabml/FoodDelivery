@@ -23,27 +23,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
 
     func createMainController() -> UINavigationController {
-        let fvc = UINavigationController(rootViewController: MainViewController())
-        fvc.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(named: "HomeBar"), tag: 0)
-        return fvc
+        let mvc = UINavigationController(rootViewController: MainViewController())
+        mvc.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(named: "HomeBar"), tag: 0)
+        return mvc
     }
 
     func createSearchController() -> UINavigationController {
-        let lvc = UINavigationController(rootViewController: SearchViewController())
-        lvc.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(named: "SaerchBar"), tag: 1)
-        return lvc
+        let svc = UINavigationController(rootViewController: SearchViewController())
+        svc.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(named: "SaerchBar"), tag: 1)
+        return svc
     }
 
     func createCartController() -> UINavigationController {
-        let lvc = UINavigationController(rootViewController: CartViewController())
-        lvc.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(named: "CartBar"), tag: 1)
-        return lvc
+        let cvc = UINavigationController(rootViewController: CartViewController())
+        cvc.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(named: "CartBar"), tag: 1)
+        return cvc
     }
 
     func createAccounthController() -> UINavigationController {
-        let lvc = UINavigationController(rootViewController: AccountViewController())
-        lvc.tabBarItem = UITabBarItem(title: "Аккаунт", image: UIImage(named: "AccountBar"), tag: 1)
-        return lvc
+        let avc = UINavigationController(rootViewController: AccountViewController())
+        avc.tabBarItem = UITabBarItem(title: "Аккаунт", image: UIImage(named: "AccountBar"), tag: 1)
+        return avc
     }
 
 
@@ -54,8 +54,9 @@ extension SceneDelegate {
                                   createCartController(),
                                   createAccounthController()]
         tabBar.tabBar.backgroundColor = .white
-        tabBar.tabBar.tintColor = UIColor(named: "ColorSet")
-        tabBar.selectedIndex = 1
+        tabBar.tabBar.unselectedItemTintColor = UIColor(named: "BarUnSelected")
+        tabBar.tabBar.tintColor = UIColor(named: "BarColor")
+        tabBar.selectedIndex = 0
         return tabBar
     }
 }
