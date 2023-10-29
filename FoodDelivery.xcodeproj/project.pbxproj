@@ -18,6 +18,7 @@
 		DDB4DF5C2AEEF08B0051E49E /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF5B2AEEF08B0051E49E /* SF-Pro-Display-Medium.otf */; };
 		DDB4DF5E2AEEF0950051E49E /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF5D2AEEF0950051E49E /* SF-Pro-Display-Regular.otf */; };
 		DDB4DF612AEEF5D90051E49E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF602AEEF5D90051E49E /* MainView.swift */; };
+		DDB4DF642AEEF7B40051E49E /* UIView+AddSudviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF632AEEF7B40051E49E /* UIView+AddSudviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		DDB4DF5B2AEEF08B0051E49E /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		DDB4DF5D2AEEF0950051E49E /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		DDB4DF602AEEF5D90051E49E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DDB4DF632AEEF7B40051E49E /* UIView+AddSudviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSudviews.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB4DF4D2AEED1BD0051E49E /* Application */,
+				DDB4DF622AEEF7940051E49E /* Core */,
 				DDB4DF512AEED4590051E49E /* Controller */,
 				DDB4DF502AEED4290051E49E /* Supporting files */,
 			);
@@ -136,6 +139,14 @@
 				DDB4DF602AEEF5D90051E49E /* MainView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DDB4DF622AEEF7940051E49E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4DF632AEEF7B40051E49E /* UIView+AddSudviews.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			files = (
 				DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */,
 				DDB4DF612AEEF5D90051E49E /* MainView.swift in Sources */,
+				DDB4DF642AEEF7B40051E49E /* UIView+AddSudviews.swift in Sources */,
 				DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */,
 				DDB4DF592AEED6D80051E49E /* AccountViewController.swift in Sources */,
 				DDB4DF552AEED63F0051E49E /* SearchViewController.swift in Sources */,
