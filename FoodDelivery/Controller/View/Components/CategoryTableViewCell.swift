@@ -19,12 +19,13 @@ class CategoryTableViewCell: UITableViewCell {
         return backGraundImageView
     }()
 
-//    private lazy var nameLabel: UILabel = {
-//        let cityLabel = UILabel()
-//        cityLabel.font = UIFont(name: "SFProDisplay-Medium", size: 20)
-//        cityLabel.textColor = .black
-//        return cityLabel
-//    }()
+    private lazy var nameLabel: UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.font = UIFont(name: "SFProDisplay-Medium", size: 20)
+        nameLabel.textColor = .black
+        nameLabel.numberOfLines = 0
+        return nameLabel
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,12 +33,15 @@ class CategoryTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        addSubviews([backGraundImageView])
+        selectionStyle = .none
+        addSubviews([backGraundImageView,
+                     nameLabel])
         installingСonstraints()
     }
 
     func setupCell(category: Category, image: UIImage) {
         backGraundImageView.image = image
+        nameLabel.text = category.name
     }
 }
 
@@ -48,6 +52,9 @@ extension CategoryTableViewCell {
             backGraundImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
             backGraundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backGraundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backGraundImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)])
+            backGraundImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
+            nameLabel.topAnchor.constraint(equalTo: backGraundImageView.topAnchor, constant: 12),
+            nameLabel.leadingAnchor.constraint(equalTo: backGraundImageView.leadingAnchor, constant: 16),
+            nameLabel.widthAnchor.constraint(equalToConstant: 160)])
     }
 }
