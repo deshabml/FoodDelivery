@@ -28,6 +28,9 @@
 		DDB4DF6A2AEF98CC0051E49E /* ModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF692AEF98CC0051E49E /* ModelBuilder.swift */; };
 		DDB4DF6D2AEFA88E0051E49E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */; };
 		DDB7E4AF2AF0089D005AC87F /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4AE2AF0089D005AC87F /* URLManager.swift */; };
+		DDB7E4B12AF00A30005AC87F /* NetworkServiceAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4B02AF00A30005AC87F /* NetworkServiceAA.swift */; };
+		DDB7E4B32AF00A65005AC87F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4B22AF00A65005AC87F /* Product.swift */; };
+		DDB7E4B52AF00B3A005AC87F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4B42AF00B3A005AC87F /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		DDB4DF692AEF98CC0051E49E /* ModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBuilder.swift; sourceTree = "<group>"; };
 		DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		DDB7E4AE2AF0089D005AC87F /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		DDB7E4B02AF00A30005AC87F /* NetworkServiceAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAA.swift; sourceTree = "<group>"; };
+		DDB7E4B22AF00A65005AC87F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		DDB7E4B42AF00B3A005AC87F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				DD5BA3E72AEFEECE0034DE1F /* Сategory.swift */,
+				DDB7E4B22AF00A65005AC87F /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,7 +218,9 @@
 		DDB7E4AD2AF00873005AC87F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DDB7E4B42AF00B3A005AC87F /* NetworkError.swift */,
 				DDB7E4AE2AF0089D005AC87F /* URLManager.swift */,
+				DDB7E4B02AF00A30005AC87F /* NetworkServiceAA.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -288,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB7E4B32AF00A65005AC87F /* Product.swift in Sources */,
 				DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */,
 				DDB4DF612AEEF5D90051E49E /* MainView.swift in Sources */,
 				DDB4DF642AEEF7B40051E49E /* UIView+AddSudviews.swift in Sources */,
@@ -296,6 +306,8 @@
 				DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */,
 				DDB4DF592AEED6D80051E49E /* AccountViewController.swift in Sources */,
 				DD5BA3EC2AEFF0D60034DE1F /* CategoryTableViewCell.swift in Sources */,
+				DDB7E4B52AF00B3A005AC87F /* NetworkError.swift in Sources */,
+				DDB7E4B12AF00A30005AC87F /* NetworkServiceAA.swift in Sources */,
 				DD5BA3E82AEFEECE0034DE1F /* Сategory.swift in Sources */,
 				DDB4DF672AEEF9750051E49E /* MainScreenViewPresenter.swift in Sources */,
 				DDB4DF6D2AEFA88E0051E49E /* LocationService.swift in Sources */,

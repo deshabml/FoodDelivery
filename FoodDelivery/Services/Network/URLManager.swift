@@ -19,13 +19,11 @@ final class URLManager {
         let urlStr = tunnel + server.rawValue + endpoint.rawValue
         return URL(string: urlStr)
     }
-
 }
 
 enum Server: String {
 
     case prod = "run.mocky.io"
-
 }
 
 enum EndPoint: String {
