@@ -12,8 +12,8 @@ class CategoryTableViewCell: UITableViewCell {
     static let id = "CategoryTableViewCell"
 
     var backGraundImageView: UIImageView = {
-        let backGraundImageView = UIImageView(image: UIImage(named: "UserPhoto"))
-        backGraundImageView.contentMode = .scaleAspectFit
+        let backGraundImageView = UIImageView()
+        backGraundImageView.contentMode = .scaleAspectFill
         backGraundImageView.layer.cornerRadius = 10
         backGraundImageView.clipsToBounds = true
         return backGraundImageView
@@ -32,9 +32,12 @@ class CategoryTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-//        backgroundColor = .yellow
         addSubviews([backGraundImageView])
         installingСonstraints()
+    }
+
+    func setupCell(category: Category, image: UIImage) {
+        backGraundImageView.image = image
     }
 }
 
@@ -42,9 +45,9 @@ extension CategoryTableViewCell {
 
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
-            backGraundImageView.topAnchor.constraint(equalTo: topAnchor),
+            backGraundImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
             backGraundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backGraundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backGraundImageView.bottomAnchor.constraint(equalTo: bottomAnchor)])
+            backGraundImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)])
     }
 }

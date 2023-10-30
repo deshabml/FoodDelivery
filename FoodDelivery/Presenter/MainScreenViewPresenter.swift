@@ -5,7 +5,7 @@
 //  Created by Лаборатория on 29.10.2023.
 //
 
-import Foundation
+import UIKit
 
 protocol MainScreenViewProtocol {
 
@@ -39,6 +39,7 @@ class MainScreenPresenter: MainScreenViewPresenterProtocol {
 class MainModel {
 
     var categories: Categorys = Categorys(сategories: [])
+    var images: [UIImage] = []
     private var completion: (() -> ())?
 
     init() {
@@ -51,6 +52,11 @@ class MainModel {
                 let categories = try await NetworkServiceAA.shared.getData(dataset: categories)
                 DispatchQueue.main.async { [unowned self] in
                     self.categories = categories
+                    for _ in 0 ..< categories.сategories.count {
+                        guard let image = UIImage(systemName: "square.dashed") else { break }
+                        self.images.append(image)
+                    }
+                    self.getImages()
                     completion?()
                 }
             } catch {
@@ -63,4 +69,19 @@ class MainModel {
         self.completion = completion
     }
 
+    func getImages() {
+        for index in 0 ..< categories.сategories.count {
+            Task {
+                do {
+                    let image = try await NetworkServiceAA.shared.downloadImage(url: categories.сategories[index].imageUrl)
+                    DispatchQueue.main.async { [unowned self] in
+                        self.images[index] = image
+                        completion?()
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
 }

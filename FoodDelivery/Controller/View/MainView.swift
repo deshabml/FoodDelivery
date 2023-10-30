@@ -26,10 +26,6 @@ class MainView: UIView {
         backgroundColor = .white
         addSubviews([tableView])
         installingСonstraints()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {
-//            print("AP OP")
-//            self.tableView.reloadData()
-//        }
     }
 
     required init?(coder: NSCoder) {
@@ -46,8 +42,8 @@ extension MainView {
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 14),
-            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])
     }
 }
@@ -67,9 +63,9 @@ extension MainView: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.id, for: indexPath) as! CategoryTableViewCell
-//        cell.setupCell(guest: guests[indexPath.row]) { index in
-//            self.guests[indexPath.row].numberGuests = index
-//        }
+        guard let mainModel else { return cell }
+        cell.setupCell(category: mainModel.categories.сategories[indexPath.row],
+                       image: mainModel.images[indexPath.row])
         return cell
     }
 
