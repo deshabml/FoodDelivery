@@ -19,6 +19,9 @@
 		DDB4DF5E2AEEF0950051E49E /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF5D2AEEF0950051E49E /* SF-Pro-Display-Regular.otf */; };
 		DDB4DF612AEEF5D90051E49E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF602AEEF5D90051E49E /* MainView.swift */; };
 		DDB4DF642AEEF7B40051E49E /* UIView+AddSudviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF632AEEF7B40051E49E /* UIView+AddSudviews.swift */; };
+		DDB4DF672AEEF9750051E49E /* MainScreenViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF662AEEF9750051E49E /* MainScreenViewPresenter.swift */; };
+		DDB4DF6A2AEF98CC0051E49E /* ModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF692AEF98CC0051E49E /* ModelBuilder.swift */; };
+		DDB4DF6D2AEFA88E0051E49E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		DDB4DF5D2AEEF0950051E49E /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		DDB4DF602AEEF5D90051E49E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DDB4DF632AEEF7B40051E49E /* UIView+AddSudviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSudviews.swift"; sourceTree = "<group>"; };
+		DDB4DF662AEEF9750051E49E /* MainScreenViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewPresenter.swift; sourceTree = "<group>"; };
+		DDB4DF692AEF98CC0051E49E /* ModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBuilder.swift; sourceTree = "<group>"; };
+		DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +76,10 @@
 			children = (
 				DDB4DF4D2AEED1BD0051E49E /* Application */,
 				DDB4DF622AEEF7940051E49E /* Core */,
+				DDB4DF682AEEFA4D0051E49E /* Model */,
 				DDB4DF512AEED4590051E49E /* Controller */,
+				DDB4DF652AEEF9080051E49E /* Presenter */,
+				DDB4DF6B2AEFA8090051E49E /* Services */,
 				DDB4DF502AEED4290051E49E /* Supporting files */,
 			);
 			path = FoodDelivery;
@@ -98,6 +107,7 @@
 			children = (
 				DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */,
 				DDB4DF392AEED1720051E49E /* AppDelegate.swift */,
+				DDB4DF692AEF98CC0051E49E /* ModelBuilder.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -147,6 +157,29 @@
 				DDB4DF632AEEF7B40051E49E /* UIView+AddSudviews.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		DDB4DF652AEEF9080051E49E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4DF662AEEF9750051E49E /* MainScreenViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DDB4DF682AEEFA4D0051E49E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDB4DF6B2AEFA8090051E49E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,9 +259,12 @@
 				DDB4DF642AEEF7B40051E49E /* UIView+AddSudviews.swift in Sources */,
 				DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */,
 				DDB4DF592AEED6D80051E49E /* AccountViewController.swift in Sources */,
+				DDB4DF672AEEF9750051E49E /* MainScreenViewPresenter.swift in Sources */,
+				DDB4DF6D2AEFA88E0051E49E /* LocationService.swift in Sources */,
 				DDB4DF552AEED63F0051E49E /* SearchViewController.swift in Sources */,
 				DDB4DF532AEED5D00051E49E /* MainViewController.swift in Sources */,
 				DDB4DF572AEED6880051E49E /* СartViewController.swift in Sources */,
+				DDB4DF6A2AEF98CC0051E49E /* ModelBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
