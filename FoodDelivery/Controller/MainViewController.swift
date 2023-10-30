@@ -14,15 +14,16 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBarSetting()
         presenter.showContent()
-        view = mainView
     }
 }
 
 extension MainViewController: MainScreenViewProtocol {
 
     func setContent(mainModel: MainModel) {
-        
+        mainView.setContent(mainModel: mainModel)
+        view = mainView
     }
 }
 

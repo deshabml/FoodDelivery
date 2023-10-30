@@ -7,8 +7,7 @@
 
 import CoreLocation
 
-class LocationService: NSObject, CLLocationManagerDelegate {
-
+class LocationService: NSObject {
 
     private var locationManager = CLLocationManager()
     private var completion: ((String) -> ())?
@@ -21,10 +20,9 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
 }
 
-// MARK: - Methods
-extension LocationService {
+extension LocationService: CLLocationManagerDelegate {
 
-    func fetchCityName(completion: @escaping (String) -> ()) {
+    func getCityName(completion: @escaping (String) -> ()) {
         self.completion = completion
         locationManager.startUpdatingLocation()
         DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {

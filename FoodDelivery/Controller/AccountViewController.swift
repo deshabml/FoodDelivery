@@ -11,6 +11,7 @@ class AccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBarSetting()
         view.backgroundColor = .green
     }
 }

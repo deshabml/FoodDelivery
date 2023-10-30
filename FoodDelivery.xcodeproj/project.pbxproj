@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD5BA3E12AEFBB190034DE1F /* LeftCustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BA3E02AEFBB190034DE1F /* LeftCustomNavigationView.swift */; };
+		DD5BA3E32AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BA3E22AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift */; };
+		DD5BA3E52AEFE4FD0034DE1F /* RightCustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BA3E42AEFE4FD0034DE1F /* RightCustomNavigationView.swift */; };
 		DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF392AEED1720051E49E /* AppDelegate.swift */; };
 		DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */; };
 		DDB4DF432AEED1740051E49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF422AEED1740051E49E /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD5BA3E02AEFBB190034DE1F /* LeftCustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCustomNavigationView.swift; sourceTree = "<group>"; };
+		DD5BA3E22AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+navigationBarSetting.swift"; sourceTree = "<group>"; };
+		DD5BA3E42AEFE4FD0034DE1F /* RightCustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCustomNavigationView.swift; sourceTree = "<group>"; };
 		DDB4DF362AEED1720051E49E /* FoodDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB4DF392AEED1720051E49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD5BA3E62AEFE7220034DE1F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD5BA3E02AEFBB190034DE1F /* LeftCustomNavigationView.swift */,
+				DD5BA3E42AEFE4FD0034DE1F /* RightCustomNavigationView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		DDB4DF2D2AEED1710051E49E = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB4DF602AEEF5D90051E49E /* MainView.swift */,
+				DD5BA3E62AEFE7220034DE1F /* Components */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB4DF632AEEF7B40051E49E /* UIView+AddSudviews.swift */,
+				DD5BA3E22AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -257,12 +274,15 @@
 				DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */,
 				DDB4DF612AEEF5D90051E49E /* MainView.swift in Sources */,
 				DDB4DF642AEEF7B40051E49E /* UIView+AddSudviews.swift in Sources */,
+				DD5BA3E12AEFBB190034DE1F /* LeftCustomNavigationView.swift in Sources */,
+				DD5BA3E52AEFE4FD0034DE1F /* RightCustomNavigationView.swift in Sources */,
 				DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */,
 				DDB4DF592AEED6D80051E49E /* AccountViewController.swift in Sources */,
 				DDB4DF672AEEF9750051E49E /* MainScreenViewPresenter.swift in Sources */,
 				DDB4DF6D2AEFA88E0051E49E /* LocationService.swift in Sources */,
 				DDB4DF552AEED63F0051E49E /* SearchViewController.swift in Sources */,
 				DDB4DF532AEED5D00051E49E /* MainViewController.swift in Sources */,
+				DD5BA3E32AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift in Sources */,
 				DDB4DF572AEED6880051E49E /* СartViewController.swift in Sources */,
 				DDB4DF6A2AEF98CC0051E49E /* ModelBuilder.swift in Sources */,
 			);
@@ -411,8 +431,12 @@
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FoodDelivery/Supporting files/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Необходим доступ к  местоположению, чтобы определить город";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -441,8 +465,12 @@
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FoodDelivery/Supporting files/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Необходим доступ к  местоположению, чтобы определить город";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

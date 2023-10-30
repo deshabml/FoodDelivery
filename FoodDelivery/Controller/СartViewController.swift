@@ -11,6 +11,7 @@ class CartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBarSetting()
         view.backgroundColor = .gray
     }
 }
