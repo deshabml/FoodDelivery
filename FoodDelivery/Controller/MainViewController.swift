@@ -26,24 +26,3 @@ extension MainViewController: MainScreenViewProtocol {
         view = mainView
     }
 }
-
-import SwiftUI
-
-struct MainViewProvider: PreviewProvider {
-
-    static var previews: some View {
-        NavigationStack {
-            ContainerView().edgesIgnoringSafeArea(.all)
-        }
-    }
-
-    struct ContainerView: UIViewControllerRepresentable{
-        typealias UIViewControllerType = MainViewController
-        let vc = MainViewController()
-        func makeUIViewController(context: Context) -> MainViewController {
-            return vc
-        }
-
-        func updateUIViewController(_ uiViewController: MainViewController, context: Context) { }
-    }
-}

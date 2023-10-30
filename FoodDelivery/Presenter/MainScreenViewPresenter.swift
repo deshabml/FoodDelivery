@@ -37,4 +37,6 @@ class MainScreenPresenter: MainScreenViewPresenterProtocol {
 
 struct MainModel {
 
+    var categories: [Category] = []
+
 }

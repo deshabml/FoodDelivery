@@ -29,12 +29,12 @@ class RightCustomNavigationView: UIView {
 }
 
 extension RightCustomNavigationView {
+    
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
             userImageView.widthAnchor.constraint(equalToConstant: 44),
             userImageView.heightAnchor.constraint(equalToConstant: 44),
             userImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            userImageView.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
+            userImageView.trailingAnchor.constraint(equalTo: trailingAnchor)])
     }
 }

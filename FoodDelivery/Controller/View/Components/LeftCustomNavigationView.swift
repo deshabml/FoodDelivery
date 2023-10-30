@@ -58,7 +58,6 @@ extension LeftCustomNavigationView {
             cityLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 4),
             cityLabel.topAnchor.constraint(equalTo: locationImageView.topAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: cityLabel.leadingAnchor),
-            dateLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 4)
-        ])
+            dateLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 4)])
     }
 }

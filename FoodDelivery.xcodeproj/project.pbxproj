@@ -10,6 +10,8 @@
 		DD5BA3E12AEFBB190034DE1F /* LeftCustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BA3E02AEFBB190034DE1F /* LeftCustomNavigationView.swift */; };
 		DD5BA3E32AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BA3E22AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift */; };
 		DD5BA3E52AEFE4FD0034DE1F /* RightCustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BA3E42AEFE4FD0034DE1F /* RightCustomNavigationView.swift */; };
+		DD5BA3E82AEFEECE0034DE1F /* Сategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BA3E72AEFEECE0034DE1F /* Сategory.swift */; };
+		DD5BA3EC2AEFF0D60034DE1F /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BA3EB2AEFF0D60034DE1F /* CategoryTableViewCell.swift */; };
 		DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF392AEED1720051E49E /* AppDelegate.swift */; };
 		DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */; };
 		DDB4DF432AEED1740051E49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF422AEED1740051E49E /* Assets.xcassets */; };
@@ -25,12 +27,15 @@
 		DDB4DF672AEEF9750051E49E /* MainScreenViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF662AEEF9750051E49E /* MainScreenViewPresenter.swift */; };
 		DDB4DF6A2AEF98CC0051E49E /* ModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF692AEF98CC0051E49E /* ModelBuilder.swift */; };
 		DDB4DF6D2AEFA88E0051E49E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */; };
+		DDB7E4AF2AF0089D005AC87F /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4AE2AF0089D005AC87F /* URLManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD5BA3E02AEFBB190034DE1F /* LeftCustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCustomNavigationView.swift; sourceTree = "<group>"; };
 		DD5BA3E22AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+navigationBarSetting.swift"; sourceTree = "<group>"; };
 		DD5BA3E42AEFE4FD0034DE1F /* RightCustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCustomNavigationView.swift; sourceTree = "<group>"; };
+		DD5BA3E72AEFEECE0034DE1F /* Сategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Сategory.swift"; sourceTree = "<group>"; };
+		DD5BA3EB2AEFF0D60034DE1F /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		DDB4DF362AEED1720051E49E /* FoodDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB4DF392AEED1720051E49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		DDB4DF662AEEF9750051E49E /* MainScreenViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewPresenter.swift; sourceTree = "<group>"; };
 		DDB4DF692AEF98CC0051E49E /* ModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBuilder.swift; sourceTree = "<group>"; };
 		DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		DDB7E4AE2AF0089D005AC87F /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 			children = (
 				DD5BA3E02AEFBB190034DE1F /* LeftCustomNavigationView.swift */,
 				DD5BA3E42AEFE4FD0034DE1F /* RightCustomNavigationView.swift */,
+				DD5BA3EB2AEFF0D60034DE1F /* CategoryTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -187,6 +194,7 @@
 		DDB4DF682AEEFA4D0051E49E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD5BA3E72AEFEECE0034DE1F /* Сategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,8 +203,17 @@
 			isa = PBXGroup;
 			children = (
 				DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */,
+				DDB7E4AD2AF00873005AC87F /* Network */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DDB7E4AD2AF00873005AC87F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DDB7E4AE2AF0089D005AC87F /* URLManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,10 +295,13 @@
 				DD5BA3E52AEFE4FD0034DE1F /* RightCustomNavigationView.swift in Sources */,
 				DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */,
 				DDB4DF592AEED6D80051E49E /* AccountViewController.swift in Sources */,
+				DD5BA3EC2AEFF0D60034DE1F /* CategoryTableViewCell.swift in Sources */,
+				DD5BA3E82AEFEECE0034DE1F /* Сategory.swift in Sources */,
 				DDB4DF672AEEF9750051E49E /* MainScreenViewPresenter.swift in Sources */,
 				DDB4DF6D2AEFA88E0051E49E /* LocationService.swift in Sources */,
 				DDB4DF552AEED63F0051E49E /* SearchViewController.swift in Sources */,
 				DDB4DF532AEED5D00051E49E /* MainViewController.swift in Sources */,
+				DDB7E4AF2AF0089D005AC87F /* URLManager.swift in Sources */,
 				DD5BA3E32AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift in Sources */,
 				DDB4DF572AEED6880051E49E /* СartViewController.swift in Sources */,
 				DDB4DF6A2AEF98CC0051E49E /* ModelBuilder.swift in Sources */,
