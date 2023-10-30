@@ -43,7 +43,7 @@ extension CategoryTableViewCell {
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
             backGraundImageView.topAnchor.constraint(equalTo: topAnchor),
-            backGraundImageView.leadingAnchor.constraint(equalTo: leftAnchor),
+            backGraundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backGraundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backGraundImageView.bottomAnchor.constraint(equalTo: bottomAnchor)])
     }

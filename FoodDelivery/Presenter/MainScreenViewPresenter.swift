@@ -16,7 +16,7 @@ protocol MainScreenViewPresenterProtocol {
 
     init(view: MainScreenViewProtocol, mainModel: MainModel)
 
-    func showContent()
+    func showContent(completion: @escaping () -> ())
 }
 
 class MainScreenPresenter: MainScreenViewPresenterProtocol {
@@ -30,13 +30,37 @@ class MainScreenPresenter: MainScreenViewPresenterProtocol {
         self.mainModel = mainModel
     }
 
-    func showContent() {
+    func showContent(completion: @escaping () -> ()) {
+        mainModel.setupCompletion(completion: completion)
         view.setContent(mainModel: mainModel)
     }
 }
 
-struct MainModel {
+class MainModel {
 
-    var categories: [Category] = []
+    var categories: Categorys = Categorys(сategories: [])
+    private var completion: (() -> ())?
+
+    init() {
+        getCategories()
+    }
+
+    func getCategories() {
+        Task {
+            do {
+                let categories = try await NetworkServiceAA.shared.getData(dataset: categories)
+                DispatchQueue.main.async { [unowned self] in
+                    self.categories = categories
+                    completion?()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func setupCompletion(completion: @escaping () -> ()) {
+        self.completion = completion
+    }
 
 }

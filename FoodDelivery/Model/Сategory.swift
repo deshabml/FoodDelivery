@@ -13,3 +13,8 @@ struct Category: Decodable {
     var name: String
     var imageUrl: String
 }
+
+struct Categorys: Decodable {
+
+    var сategories: [Category]
+}

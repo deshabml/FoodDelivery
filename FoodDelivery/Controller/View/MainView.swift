@@ -11,10 +11,8 @@ class MainView: UIView {
 
     var mainModel: MainModel?
 
-    private lazy var tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.id)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
@@ -23,9 +21,14 @@ class MainView: UIView {
 
     init() {
         super.init(frame: CGRect())
+        setuptableView()
         backgroundColor = .white
         addSubviews([tableView])
         installingСonstraints()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {
+//            print("AP OP")
+//            self.tableView.reloadData()
+//        }
     }
 
     required init?(coder: NSCoder) {
@@ -50,9 +53,14 @@ extension MainView {
 
 extension MainView: UITableViewDataSource, UITableViewDelegate {
 
+    func setuptableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let mainModel else { return 4 }
-        return mainModel.categories.count
+        return mainModel.categories.сategories.count
     }
     
 
@@ -65,6 +73,6 @@ extension MainView: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        148
+        UIScreen.main.bounds.height / 4
     }
 }

@@ -15,7 +15,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarSetting()
-        presenter.showContent()
+        presenter.showContent { [unowned self] in
+            self.mainView.tableView.reloadData()
+        }
     }
 }
 
