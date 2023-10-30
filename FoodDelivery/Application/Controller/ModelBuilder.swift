@@ -16,17 +16,7 @@ protocol Builder {
 class ModelBuilder: Builder {
 
     static func createMainScreen() -> UIViewController {
-        let tabBar = UITabBarController()
-        tabBar.viewControllers = [createMainController(),
-                                  createSearchController(),
-                                  createCartController(),
-                                  createAccounthController()]
-        tabBar.tabBar.backgroundColor = .white
-        tabBar.tabBar.unselectedItemTintColor = UIColor(named: "BarUnSelected")
-        tabBar.tabBar.tintColor = UIColor(named: "BarColor")
-        tabBar.tabBar.selectedItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "SFProDisplay-Medium", size: 10)!], for: .normal)
-        tabBar.selectedIndex = 0
-        return tabBar
+        createTabBar()
     }
 
     private static func createMainController() -> UINavigationController {
@@ -55,5 +45,22 @@ class ModelBuilder: Builder {
         let avc = UINavigationController(rootViewController: AccountViewController())
         avc.tabBarItem = UITabBarItem(title: "Аккаунт", image: UIImage(named: "AccountBar"), tag: 1)
         return avc
+    }
+
+    private static func createTabBar() -> UITabBarController {
+        let tabBar = UITabBarController()
+        tabBar.viewControllers = [createMainController(),
+                                  createSearchController(),
+                                  createCartController(),
+                                  createAccounthController()]
+        tabBar.tabBar.backgroundColor = .white
+        let borderView = UIView(frame: CGRect(x: 0, y: 0, width: tabBar.tabBar.bounds.width, height: 1))
+        borderView.backgroundColor = UIColor(named: "TabBarBorderColor")
+        tabBar.tabBar.addSubview(borderView)
+        tabBar.tabBar.unselectedItemTintColor = UIColor(named: "BarUnSelected")
+        tabBar.tabBar.tintColor = UIColor(named: "BarColor")
+        tabBar.tabBar.selectedItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "SFProDisplay-Medium", size: 10)!], for: .normal)
+        tabBar.selectedIndex = 0
+        return tabBar
     }
 }

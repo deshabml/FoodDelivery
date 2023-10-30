@@ -16,6 +16,7 @@ class MainView: UIView {
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.id)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
         return tableView
     }()
 
@@ -44,7 +45,7 @@ extension MainView {
 
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 14),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])
@@ -73,6 +74,6 @@ extension MainView: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UIScreen.main.bounds.height / 4
+        (UIScreen.main.bounds.height - 200) / 4
     }
 }
