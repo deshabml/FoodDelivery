@@ -9,8 +9,26 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    var presenter: MainScreenViewPresenterProtocol!
+    private let mainView: MainView = MainView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        navigationBarSetting()
+        presenter.showContent { [unowned self] in
+            self.mainView.tableView.reloadData()
+        }
+    }
+}
+
+extension MainViewController: MainScreenViewProtocol {
+
+    func setContent(mainModel: MainModel) {
+        mainView.setContent(mainModel: mainModel)
+        mainView.setupCompletion { [unowned self] in
+            let svc = SearchViewController()
+            self.navigationController?.pushViewController(svc, animated: true)
+        }
+        view = mainView
     }
 }
