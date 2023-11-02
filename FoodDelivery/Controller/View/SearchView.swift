@@ -9,9 +9,18 @@ import UIKit
 
 class SearchView: UIView {
 
+    var tags = ["Все меню", "Салаты", "С рисом", "С рыбой"]
+
+    private lazy var tagsCollectionView: TagsCollectionView = {
+        let tagsCollectionView = TagsCollectionView()
+        return tagsCollectionView
+    }()
+
     init() {
         super.init(frame: CGRect())
         backgroundColor = .white
+        addSubviews([tagsCollectionView])
+        installingСonstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -21,20 +30,11 @@ class SearchView: UIView {
 
 extension SearchView {
 
-    @objc func selectedValue(target: UISegmentedControl) {
-//        if target == levelsSegmentControl {
-//            let index = target.selectedSegmentIndex
-//            logo.image = logos[index]
-//            switch index {
-//                case 0:
-//                    difficultyLevel = .Beginner
-//                case 1:
-//                    difficultyLevel = .smartGuy
-//                case 2:
-//                    difficultyLevel = .beast
-//                default:
-//                    print("Что-то, пошло не по плану!")
-//            }
-//        }
+    private func installingСonstraints() {
+        NSLayoutConstraint.activate([
+            tagsCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tagsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tagsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tagsCollectionView.heightAnchor.constraint(equalToConstant: 68)])
     }
 }
