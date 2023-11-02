@@ -15,6 +15,7 @@
 		DDB31A1E2AF3C22700C01FA3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A1D2AF3C22700C01FA3 /* SearchView.swift */; };
 		DDB31A202AF403C400C01FA3 /* TagsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A1F2AF403C300C01FA3 /* TagsCollectionView.swift */; };
 		DDB31A222AF4044D00C01FA3 /* TagsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A212AF4044D00C01FA3 /* TagsViewCell.swift */; };
+		DDB31A242AF425BB00C01FA3 /* SearchScreenViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A232AF425BB00C01FA3 /* SearchScreenViewProtocol.swift */; };
 		DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF392AEED1720051E49E /* AppDelegate.swift */; };
 		DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */; };
 		DDB4DF432AEED1740051E49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF422AEED1740051E49E /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		DDB31A1D2AF3C22700C01FA3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DDB31A1F2AF403C300C01FA3 /* TagsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionView.swift; sourceTree = "<group>"; };
 		DDB31A212AF4044D00C01FA3 /* TagsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewCell.swift; sourceTree = "<group>"; };
+		DDB31A232AF425BB00C01FA3 /* SearchScreenViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewProtocol.swift; sourceTree = "<group>"; };
 		DDB4DF362AEED1720051E49E /* FoodDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB4DF392AEED1720051E49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB4DF662AEEF9750051E49E /* MainScreenViewPresenter.swift */,
+				DDB31A232AF425BB00C01FA3 /* SearchScreenViewProtocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */,
 				DDB4DF612AEEF5D90051E49E /* MainView.swift in Sources */,
 				DDB4DF642AEEF7B40051E49E /* UIView+AddSudviews.swift in Sources */,
+				DDB31A242AF425BB00C01FA3 /* SearchScreenViewProtocol.swift in Sources */,
 				DD5BA3E12AEFBB190034DE1F /* LeftCustomNavigationView.swift in Sources */,
 				DDB31A202AF403C400C01FA3 /* TagsCollectionView.swift in Sources */,
 				DD5BA3E52AEFE4FD0034DE1F /* RightCustomNavigationView.swift in Sources */,

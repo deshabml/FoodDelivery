@@ -9,7 +9,7 @@ import UIKit
 
 class SearchView: UIView {
 
-    var tags = ["Все меню", "Салаты", "С рисом", "С рыбой"]
+    var mainModel: SearchModel?
 
     private lazy var tagsCollectionView: TagsCollectionView = {
         let tagsCollectionView = TagsCollectionView()
@@ -29,6 +29,10 @@ class SearchView: UIView {
 }
 
 extension SearchView {
+
+    func setContent(mainModel: SearchModel) {
+        self.mainModel = mainModel
+    }
 
     private func installingСonstraints() {
         NSLayoutConstraint.activate([

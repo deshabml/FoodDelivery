@@ -9,6 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    var presenter: SearchScreenViewPresenterProtocol!
     private lazy var isStartScreen: Bool = true
     private let mainView: SearchView = SearchView()
 
@@ -23,5 +24,12 @@ extension SearchViewController {
 
     func setupIsNotStartScreen() {
         isStartScreen = false
+    }
+}
+
+extension SearchViewController: SearchScreenViewProtocol {
+
+    func setContent(mainModel: SearchModel) {
+        mainView.setContent(mainModel: mainModel)
     }
 }

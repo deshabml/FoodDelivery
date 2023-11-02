@@ -10,11 +10,15 @@ import Foundation
 struct Dish: Decodable {
 
     let id: Int
+    var name: String
+    var price: Int
+    var weight: Int
+    var description: String
+    var imageUrl: String
+    var tegs: [String]
 }
 
-enum TegsDish: String {
+struct Dishes: Decodable {
 
-    case salads = "Салаты"
-    case withRice = "С рисом"
-    case withFish = "С рыбой"
+    var dishes: [Dish]
 }

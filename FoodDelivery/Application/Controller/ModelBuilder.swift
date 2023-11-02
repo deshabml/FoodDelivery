@@ -30,7 +30,11 @@ class ModelBuilder: Builder {
     }
 
     private static func createSearchController() -> UINavigationController {
-        let svc = UINavigationController(rootViewController: SearchViewController())
+        let mainModel = SearchModel()
+        let view = SearchViewController()
+        let presenter = SearchScreenPresenter(view: view, mainModel: mainModel)
+        view.presenter = presenter
+        let svc = UINavigationController(rootViewController: view)
         svc.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(named: "SaerchBar"), tag: 1)
         return svc
     }

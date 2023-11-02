@@ -17,7 +17,7 @@ class TagsViewCell: UICollectionViewCell {
 
     var label: UILabel = {
         let label = UILabel(frame: .zero)
-        label.font = UIFont(name: "medium", size: 14)
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
         label.textColor = UIColor(named: "ColorButton")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,11 +46,9 @@ extension TagsViewCell {
 
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
-        ])
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            label.centerXAnchor.constraint(equalTo: centerXAnchor)])
     }
 
     func setupCell(textLabel: String, directionIndex: Int, isActive: Bool) {
@@ -68,18 +66,18 @@ extension TagsViewCell {
     func setupSelect(isActive: Bool) {
         self.isActive = isActive
         if isActive {
-            UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            UIView.animate(withDuration: 0.1, delay: 0, animations: {
                 self.backgroundColor = UIColor(named: "BarColor")
             }) {_ in
-                UIView.animate(withDuration: 0.2, delay: 0, animations: {
+                UIView.animate(withDuration: 0.1, delay: 0, animations: {
                     self.label.textColor = .white
                 })
             }
         } else {
-            UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            UIView.animate(withDuration: 0.1, delay: 0, animations: {
                 self.backgroundColor = UIColor(named: "TagsBackColor")
             }) {_ in
-                UIView.animate(withDuration: 0.2, delay: 0, animations: {
+                UIView.animate(withDuration: 0.1, delay: 0, animations: {
                     self.label.textColor = .black
                 })
             }
