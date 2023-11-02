@@ -10,11 +10,12 @@ import UIKit
 class SearchViewController: UIViewController {
 
     private lazy var isStartScreen: Bool = true
+    private let mainView: SearchView = SearchView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarSetting(isStartScreen: isStartScreen)
-        view.backgroundColor = .lightGray
+        view = mainView
     }
 }
 

@@ -11,3 +11,10 @@ struct Dish: Decodable {
 
     let id: Int
 }
+
+enum TegsDish: String {
+
+    case salads = "Салаты"
+    case withRice = "С рисом"
+    case withFish = "С рыбой"
+}

@@ -30,8 +30,7 @@ extension UIViewController {
             let rightBarButtonItem = UIBarButtonItem(customView: RightCustomNavigationView())
             navigationItem.rightBarButtonItem = rightBarButtonItem
         } else {
-            self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
-            let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
+            let backButton = UIBarButtonItem(image: UIImage(named: "BackButtonImage"),
                                              style: .plain,
                                              target: self,
                                              action: #selector(goBack))
