@@ -29,7 +29,7 @@
 		DDB4DF6D2AEFA88E0051E49E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */; };
 		DDB7E4AF2AF0089D005AC87F /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4AE2AF0089D005AC87F /* URLManager.swift */; };
 		DDB7E4B12AF00A30005AC87F /* NetworkServiceAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4B02AF00A30005AC87F /* NetworkServiceAA.swift */; };
-		DDB7E4B32AF00A65005AC87F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4B22AF00A65005AC87F /* Product.swift */; };
+		DDB7E4B32AF00A65005AC87F /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4B22AF00A65005AC87F /* Dish.swift */; };
 		DDB7E4B52AF00B3A005AC87F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7E4B42AF00B3A005AC87F /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +58,7 @@
 		DDB4DF6C2AEFA88E0051E49E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		DDB7E4AE2AF0089D005AC87F /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 		DDB7E4B02AF00A30005AC87F /* NetworkServiceAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAA.swift; sourceTree = "<group>"; };
-		DDB7E4B22AF00A65005AC87F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		DDB7E4B22AF00A65005AC87F /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		DDB7E4B42AF00B3A005AC87F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				DD5BA3E72AEFEECE0034DE1F /* Сategory.swift */,
-				DDB7E4B22AF00A65005AC87F /* Product.swift */,
+				DDB7E4B22AF00A65005AC87F /* Dish.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB7E4B32AF00A65005AC87F /* Product.swift in Sources */,
+				DDB7E4B32AF00A65005AC87F /* Dish.swift in Sources */,
 				DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */,
 				DDB4DF612AEEF5D90051E49E /* MainView.swift in Sources */,
 				DDB4DF642AEEF7B40051E49E /* UIView+AddSudviews.swift in Sources */,

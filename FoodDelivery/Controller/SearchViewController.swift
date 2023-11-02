@@ -9,9 +9,18 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    private lazy var isStartScreen: Bool = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBarSetting()
+        navigationBarSetting(isStartScreen: isStartScreen)
         view.backgroundColor = .lightGray
+    }
+}
+
+extension SearchViewController {
+
+    func setupIsNotStartScreen() {
+        isStartScreen = false
     }
 }

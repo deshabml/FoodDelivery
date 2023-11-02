@@ -25,8 +25,10 @@ extension MainViewController: MainScreenViewProtocol {
 
     func setContent(mainModel: MainModel) {
         mainView.setContent(mainModel: mainModel)
-        mainView.setupCompletion { [unowned self] in
+        mainView.setupCompletion { [unowned self] name in
             let svc = SearchViewController()
+            svc.setupIsNotStartScreen()
+            svc.title = name
             self.navigationController?.pushViewController(svc, animated: true)
         }
         view = mainView

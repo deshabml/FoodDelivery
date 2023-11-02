@@ -38,7 +38,7 @@ final class NetworkServiceAA {
         let arrayUrl: EndPoint
         switch dataset {
             case _ as Categorys: arrayUrl = .categorys
-            case _ as Product: arrayUrl = .products
+            case _ as Dish: arrayUrl = .dishes
             default: throw NetworkError.badUrl
         }
         guard let url = URLManager.shared.createUrl(endpoint: arrayUrl) else { throw NetworkError.badUrl }

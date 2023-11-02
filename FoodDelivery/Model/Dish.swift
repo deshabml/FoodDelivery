@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Decodable {
+struct Dish: Decodable {
 
     let id: Int
 }

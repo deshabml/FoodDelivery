@@ -10,7 +10,7 @@ import UIKit
 class MainView: UIView {
 
     var mainModel: MainModel?
-    private var completion: (() -> ())?
+    private var completion: ((String) -> ())?
 
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -48,7 +48,7 @@ extension MainView {
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)])
     }
 
-    func setupCompletion(complrtion: @escaping ()->()) {
+    func setupCompletion(complrtion: @escaping (String)->()) {
         self.completion = complrtion
     }
 }
@@ -80,6 +80,6 @@ extension MainView: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
-        completion?()
+        completion?(mainModel?.categories.сategories[indexPath.row].name ?? "")
     }
 }

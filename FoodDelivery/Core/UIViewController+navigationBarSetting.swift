@@ -17,15 +17,38 @@ extension UIViewController {
         return formatter.string(from: currentDate)
     }
 
-    func navigationBarSetting() {
-        let leftBarButtonView = LeftCustomNavigationView()
-        let locationService = LocationService()
-        locationService.getCityName { [unowned self] cityName in
-            leftBarButtonView.setupView(city: cityName, date: self.date)
+    func navigationBarSetting(isStartScreen: Bool = true) {
+        if isStartScreen {
+            let leftBarButtonView = LeftCustomNavigationView()
+            let locationService = LocationService()
+            locationService.getCityName { [unowned self] cityName in
+                leftBarButtonView.setupView(city: cityName, 
+                                            date: self.date)
+            }
+            let leftBarButtonItem = UIBarButtonItem(customView: leftBarButtonView)
+            navigationItem.leftBarButtonItem = leftBarButtonItem
+            let rightBarButtonItem = UIBarButtonItem(customView: RightCustomNavigationView())
+            navigationItem.rightBarButtonItem = rightBarButtonItem
+        } else {
+            self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+            let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(goBack))
+            backButton.tintColor = .black
+            navigationItem.leftBarButtonItem = backButton
+            let label = UILabel()
+            label.backgroundColor = .clear
+            label.font = UIFont(name: "SFProDisplay-Medium", size: 18)
+            label.textAlignment = .center
+            label.textColor = .black
+            label.text = title
+            navigationItem.titleView = label
         }
-        let leftBarButtonItem = UIBarButtonItem(customView: leftBarButtonView)
-        navigationItem.leftBarButtonItem = leftBarButtonItem
-        let rightBarButtonItem = UIBarButtonItem(customView: RightCustomNavigationView())
-        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+
+    @objc
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
