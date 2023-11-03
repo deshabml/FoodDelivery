@@ -65,18 +65,18 @@ extension TagsViewCell {
     func setupSelect(isActive: Bool) {
         self.isActive = isActive
         if isActive {
-            UIView.animate(withDuration: 0.1, delay: 0, animations: {
+            UIView.animate(withDuration: 0.1, delay: 0, animations: { [unowned self] in
                 self.backgroundColor = UIColor(named: "BarColor")
-            }) {_ in
-                UIView.animate(withDuration: 0.1, delay: 0, animations: {
+            }) { [unowned self] _ in
+                UIView.animate(withDuration: 0.1, delay: 0, animations: { [unowned self] in
                     self.label.textColor = .white
                 })
             }
         } else {
-            UIView.animate(withDuration: 0.1, delay: 0, animations: {
+            UIView.animate(withDuration: 0.1, delay: 0, animations: { [unowned self] in
                 self.backgroundColor = UIColor(named: "TagsBackColor")
-            }) {_ in
-                UIView.animate(withDuration: 0.1, delay: 0, animations: {
+            }) { [unowned self] _ in
+                UIView.animate(withDuration: 0.1, delay: 0, animations: { [unowned self] in
                     self.label.textColor = .black
                 })
             }

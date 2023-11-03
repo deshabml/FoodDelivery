@@ -16,6 +16,7 @@ struct Dish: Decodable {
     var description: String
     var imageUrl: String
     var tegs: [String]
+    var isLike: Bool?
 }
 
 struct Dishes: Decodable {

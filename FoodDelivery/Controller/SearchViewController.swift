@@ -20,7 +20,8 @@ class SearchViewController: UIViewController {
             self.mainView.tagsCollectionView.reloadData()
             self.mainView.dishesCollectionView.reloadData()
         }
-//        view = mainView
+        tabBarController?.view.addSubview(mainView.backView)
+        tabBarController?.view.addSubview(mainView.backContentView)
     }
 }
 

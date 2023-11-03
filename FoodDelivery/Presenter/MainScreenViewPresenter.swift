@@ -36,7 +36,7 @@ class MainScreenPresenter: MainScreenViewPresenterProtocol {
     }
 }
 
-class MainModel {
+final class MainModel {
 
     var categories: Categorys = Categorys(сategories: [])
     var images: [UIImage] = []
@@ -46,7 +46,7 @@ class MainModel {
         getCategories()
     }
 
-    func getCategories() {
+    private func getCategories() {
         Task {
             do {
                 let categories = try await NetworkServiceAA.shared.getData(dataset: categories)
@@ -69,7 +69,7 @@ class MainModel {
         self.completion = completion
     }
 
-    func getImages() {
+    private func getImages() {
         for index in 0 ..< categories.сategories.count {
             Task {
                 do {

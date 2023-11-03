@@ -11,6 +11,7 @@ class DishesCollectionView: UICollectionView {
 
     var mainModel: SearchModel?
     let sideSquareSize = (UIScreen.main.bounds.width - 48) / 3
+    private var completion: (() -> ())?
 
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -41,7 +42,8 @@ extension DishesCollectionView: UICollectionViewDataSource, UICollectionViewDele
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishViewCell.id, for: indexPath) as? DishViewCell else { return DishViewCell()}
         guard let mainModel else { return cell }
         cell.setupCell(textLabel: mainModel.activeDishes[indexPath.row].name,
-                       Image: mainModel.images[indexPath.row], sideSize: sideSquareSize)
+                       Image: mainModel.activeImages[indexPath.row],
+                       sideSize: sideSquareSize)
         return cell
     }
 
@@ -50,23 +52,17 @@ extension DishesCollectionView: UICollectionViewDataSource, UICollectionViewDele
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let mainModel else { return }
-//        for index in 0 ..< mainModel.isActiveTags.count {
-//            guard let cell = collectionView.cellForItem(at: [0, index]) as? TagsViewCell else { break }
-//            if mainModel.tags[index] == mainModel.tags[indexPath.row] {
-//                mainModel.isActiveTags[index] = true
-//                cell.setupSelect(isActive: true)
-//            } else {
-//                mainModel.isActiveTags[index] = false
-//                cell.setupSelect(isActive: false)
-//            }
-//        }
+        guard let mainModel else { return }
+        mainModel.setupActiveDish(activeDish: mainModel.activeDishes[indexPath.row],
+                                  activeImage: mainModel.activeImages[indexPath.row])
+        completion?()
     }
 }
 
 extension DishesCollectionView {
 
-    func setContent(mainModel: SearchModel) {
+    func setContent(mainModel: SearchModel, completion: @escaping ()->()) {
         self.mainModel = mainModel
+        self.completion = completion
     }
 }
