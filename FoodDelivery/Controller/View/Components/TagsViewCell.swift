@@ -18,13 +18,13 @@ class TagsViewCell: UICollectionViewCell {
     var label: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
-        label.textColor = UIColor(named: "ColorButton")
+        label.textColor = .black
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(named: "ColorCell")
+        backgroundColor = UIColor(named: "BarColor")
         layer.cornerRadius = 12
         contentView.addSubviews([label])
         installingСonstraints()

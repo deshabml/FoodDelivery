@@ -10,6 +10,7 @@ import UIKit
 class DishesCollectionView: UICollectionView {
 
     var mainModel: SearchModel?
+    let sideSquareSize = (UIScreen.main.bounds.width - 48) / 3
 
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -18,7 +19,7 @@ class DishesCollectionView: UICollectionView {
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         super.init(frame: .zero, collectionViewLayout: layout)
-        register(TagsViewCell.self, forCellWithReuseIdentifier: TagsViewCell.id)
+        register(DishViewCell.self, forCellWithReuseIdentifier: DishViewCell.id)
         dataSource = self
         delegate = self
         showsVerticalScrollIndicator = false
@@ -37,22 +38,15 @@ extension DishesCollectionView: UICollectionViewDataSource, UICollectionViewDele
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagsViewCell.id, for: indexPath) as? TagsViewCell else { return TagsViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishViewCell.id, for: indexPath) as? DishViewCell else { return DishViewCell()}
         guard let mainModel else { return cell }
         cell.setupCell(textLabel: mainModel.activeDishes[indexPath.row].name,
-                       directionIndex: indexPath.row,
-                       isActive: false)
+                       Image: mainModel.images[indexPath.row], sideSize: sideSquareSize)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        guard let mainModel else {
-            return CGSize(width: 70, height: 70)
-//        }
-//        let label = UILabel(frame: CGRect.zero)
-//        label.text = mainModel.tags[indexPath.row]
-//        label.sizeToFit()
-//        return CGSize(width: label.frame.width + 16, height: 35)
+        return CGSize(width: sideSquareSize, height: sideSquareSize + 40)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
