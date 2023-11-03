@@ -39,6 +39,13 @@ class SearchScreenPresenter: SearchScreenViewPresenterProtocol {
 class SearchModel {
 
     var dishes: Dishes = Dishes(dishes: [])
+    var activeDishes: Dishes {
+        let activeDishes = dishes
+        if let activeTagIndex = isActiveTags.firstIndex(of: true) {
+            print(Int(activeTagIndex))
+        }
+        return activeDishes
+    }
     var tags: [String] = []
     var isActiveTags: [Bool] = []
     var images: [UIImage] = []
@@ -54,12 +61,22 @@ class SearchModel {
                 let dishes = try await NetworkServiceAA.shared.getData(dataset: dishes)
                 DispatchQueue.main.async { [unowned self] in
                     self.dishes = dishes
-                    print(dishes)
-//                    for _ in 0 ..< categories.сategories.count {
-//                        guard let image = UIImage(systemName: "square.dashed") else { break }
-//                        self.images.append(image)
-//                    }
-//                    self.getImages()
+                    dishes.dishes.forEach { dish in
+                        dish.tegs.forEach { tag in
+                            if !self.tags.contains(tag) {
+                                self.tags.append(tag)
+                                self.isActiveTags.append(false)
+                            }
+                        }
+                    }
+                    if !self.isActiveTags.isEmpty {
+                        isActiveTags[0] = true
+                    }
+                    for _ in 0 ..< dishes.dishes.count {
+                        guard let image = UIImage(systemName: "square.dashed") else { break }
+                        self.images.append(image)
+                    }
+                    self.getImages()
                     completion?()
                 }
             } catch {
@@ -73,19 +90,19 @@ class SearchModel {
     }
 
     func getImages() {
-//        for index in 0 ..< categories.сategories.count {
-//            Task {
-//                do {
-//                    let image = try await NetworkServiceAA.shared.downloadImage(url: categories.сategories[index].imageUrl)
-//                    DispatchQueue.main.async { [unowned self] in
-//                        self.images[index] = image
-//                        completion?()
-//                    }
-//                } catch {
-//                    print(error.localizedDescription)
-//                }
-//            }
-//        }
+        for index in 0 ..< dishes.dishes.count {
+            Task {
+                do {
+                    let image = try await NetworkServiceAA.shared.downloadImage(url: dishes.dishes[index].imageUrl)
+                    DispatchQueue.main.async { [unowned self] in
+                        self.images[index] = image
+                        completion?()
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 

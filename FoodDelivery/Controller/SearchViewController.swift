@@ -16,7 +16,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarSetting(isStartScreen: isStartScreen)
-        view = mainView
+        presenter.showContent {
+            self.mainView.tagsCollectionView.reloadData()
+        }
+//        view = mainView
     }
 }
 
@@ -31,5 +34,6 @@ extension SearchViewController: SearchScreenViewProtocol {
 
     func setContent(mainModel: SearchModel) {
         mainView.setContent(mainModel: mainModel)
+        view = mainView
     }
 }

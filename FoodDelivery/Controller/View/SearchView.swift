@@ -11,7 +11,7 @@ class SearchView: UIView {
 
     var mainModel: SearchModel?
 
-    private lazy var tagsCollectionView: TagsCollectionView = {
+    let tagsCollectionView: TagsCollectionView = {
         let tagsCollectionView = TagsCollectionView()
         return tagsCollectionView
     }()
@@ -32,6 +32,7 @@ extension SearchView {
 
     func setContent(mainModel: SearchModel) {
         self.mainModel = mainModel
+        tagsCollectionView.setContent(mainModel: mainModel)
     }
 
     private func installingСonstraints() {

@@ -9,10 +9,7 @@ import UIKit
 
 class TagsCollectionView: UICollectionView {
 
-    var tags = ["Все меню", "Салаты", "С рисом", "С рыбой"]
-    var active = [false, false, false, false]
-
-    private var numberActive: [Int] = []
+    var mainModel: SearchModel?
 
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -35,43 +32,48 @@ class TagsCollectionView: UICollectionView {
 extension TagsCollectionView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        tags.count
+        guard let mainModel else { return 0 }
+        return mainModel.tags.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagsViewCell.id, for: indexPath) as? TagsViewCell else { return TagsViewCell()}
-        cell.setupCell(textLabel: tags[indexPath.item], directionIndex: indexPath.item, isActive: numberActive.contains(indexPath.item))
+        guard let mainModel else { return cell }
+        cell.setupCell(textLabel: mainModel.tags[indexPath.row],
+                       directionIndex: indexPath.row,
+                       isActive: mainModel.isActiveTags[indexPath.row])
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let mainModel else {
+            return CGSize(width: 10, height: 35)
+        }
         let label = UILabel(frame: CGRect.zero)
-                label.text = tags[indexPath.row]
-                label.sizeToFit()
-                return CGSize(width: label.frame.width + 16, height: 35)
+        label.text = mainModel.tags[indexPath.row]
+        label.sizeToFit()
+        return CGSize(width: label.frame.width + 16, height: 35)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        for index in 0 ..< active.count {
+        guard let mainModel else { return }
+        for index in 0 ..< mainModel.isActiveTags.count {
             guard let cell = collectionView.cellForItem(at: [0, index]) as? TagsViewCell else { break }
-            if tags[index] == tags[indexPath.row] {
-                active[index] = true
-                numberActive.append(cell.indexCell)
+            if mainModel.tags[index] == mainModel.tags[indexPath.row] {
+                mainModel.isActiveTags[index] = true
                 cell.setupSelect(isActive: true)
             } else {
-                active[index] = false
-                numberActive = numberActive.filter {$0 != indexPath.item}
+                mainModel.isActiveTags[index] = false
                 cell.setupSelect(isActive: false)
             }
         }
     }
 }
 
-//extension OneCollectionView {
-//
-//    func setupCollectionView(directions: [String]) {
-//        self.directions = directions
-//    }
-//
-//}
+extension TagsCollectionView {
+    
+    func setContent(mainModel: SearchModel) {
+        self.mainModel = mainModel
+    }
+}
 
