@@ -39,15 +39,15 @@ class SearchScreenPresenter: SearchScreenViewPresenterProtocol {
 class SearchModel {
 
     var dishes: Dishes = Dishes(dishes: [])
-    var activeDishes: Dishes {
-        let activeDishes = dishes
-        if let activeTagIndex = isActiveTags.firstIndex(of: true) {
-            print(Int(activeTagIndex))
-        }
-        return activeDishes
-    }
+    var activeDishes: [Dish] = []
     var tags: [String] = []
-    var isActiveTags: [Bool] = []
+    var isActiveTags: [Bool] = [] {
+        didSet {
+            if let activeTagIndex = isActiveTags.firstIndex(of: true) {
+                self.activeDishes = dishes.dishes.filter { $0.tegs.contains(tags[activeTagIndex]) }
+            }
+        }
+    }
     var images: [UIImage] = []
     private var completion: (() -> ())?
 

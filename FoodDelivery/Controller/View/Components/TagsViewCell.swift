@@ -19,7 +19,6 @@ class TagsViewCell: UICollectionViewCell {
         let label = UILabel(frame: .zero)
         label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
         label.textColor = UIColor(named: "ColorButton")
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -27,7 +26,7 @@ class TagsViewCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = UIColor(named: "ColorCell")
         layer.cornerRadius = 12
-        contentView.addSubview(label)
+        contentView.addSubviews([label])
         installingСonstraints()
     }
 

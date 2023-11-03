@@ -18,6 +18,7 @@ class SearchViewController: UIViewController {
         navigationBarSetting(isStartScreen: isStartScreen)
         presenter.showContent {
             self.mainView.tagsCollectionView.reloadData()
+            self.mainView.dishesCollectionView.reloadData()
         }
 //        view = mainView
     }

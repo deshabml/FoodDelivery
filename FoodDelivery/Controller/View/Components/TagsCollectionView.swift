@@ -10,11 +10,12 @@ import UIKit
 class TagsCollectionView: UICollectionView {
 
     var mainModel: SearchModel?
+    private var completion: (() -> ())?
 
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         super.init(frame: .zero, collectionViewLayout: layout)
@@ -66,14 +67,16 @@ extension TagsCollectionView: UICollectionViewDataSource, UICollectionViewDelega
                 mainModel.isActiveTags[index] = false
                 cell.setupSelect(isActive: false)
             }
+            completion?()
         }
     }
 }
 
 extension TagsCollectionView {
     
-    func setContent(mainModel: SearchModel) {
+    func setContent(mainModel: SearchModel, completion: @escaping ()->()) {
         self.mainModel = mainModel
+        self.completion = completion
     }
 }
 
