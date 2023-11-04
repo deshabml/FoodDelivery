@@ -36,17 +36,21 @@ class MainScreenPresenter: MainScreenViewPresenterProtocol {
     }
 }
 
-class MainModel {
+final class MainModel {
 
+    let searchModel: SearchModel
+    let cartModel: CartModel
     var categories: Categorys = Categorys(сategories: [])
     var images: [UIImage] = []
     private var completion: (() -> ())?
 
-    init() {
+    init(searchModel: SearchModel, cartModel: CartModel) {
+        self.searchModel = searchModel
+        self.cartModel = cartModel
         getCategories()
     }
 
-    func getCategories() {
+    private func getCategories() {
         Task {
             do {
                 let categories = try await NetworkServiceAA.shared.getData(dataset: categories)
@@ -69,7 +73,7 @@ class MainModel {
         self.completion = completion
     }
 
-    func getImages() {
+    private func getImages() {
         for index in 0 ..< categories.сategories.count {
             Task {
                 do {

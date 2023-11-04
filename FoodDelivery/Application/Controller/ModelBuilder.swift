@@ -15,12 +15,15 @@ protocol Builder {
 
 class ModelBuilder: Builder {
 
+    private static let cartModel: CartModel = CartModel()
+    private static let searchModel: SearchModel = SearchModel(cartModel: cartModel)
+
     static func createMainScreen() -> UIViewController {
         createTabBar()
     }
 
     private static func createMainController() -> UINavigationController {
-        let mainModel = MainModel()
+        let mainModel = MainModel(searchModel: searchModel, cartModel: cartModel)
         let view = MainViewController()
         let presenter = MainScreenPresenter(view: view, mainModel: mainModel)
         view.presenter = presenter
@@ -30,7 +33,11 @@ class ModelBuilder: Builder {
     }
 
     private static func createSearchController() -> UINavigationController {
-        let svc = UINavigationController(rootViewController: SearchViewController())
+        let mainModel = searchModel
+        let view = SearchViewController()
+        let presenter = SearchScreenPresenter(view: view, mainModel: mainModel)
+        view.presenter = presenter
+        let svc = UINavigationController(rootViewController: view)
         svc.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(named: "SaerchBar"), tag: 1)
         return svc
     }
