@@ -20,12 +20,24 @@ class SearchViewController: UIViewController {
             self.mainView.tagsCollectionView.reloadData()
             self.mainView.dishesCollectionView.reloadData()
         }
-        tabBarController?.view.addSubview(mainView.backView)
-        tabBarController?.view.addSubview(mainView.backContentView)
+        if let tabBarController {
+            tabBarController.view.addSubview(mainView.backView)
+            tabBarController.view.addSubview(mainView.backContentView)
+            test()
+        }
     }
 }
 
 extension SearchViewController {
+
+    func test() {
+        if let tabBarController {
+            NSLayoutConstraint.activate([
+                mainView.backContentView.centerYAnchor.constraint(equalTo: tabBarController.view.centerYAnchor),
+                mainView.backContentView.centerXAnchor.constraint(equalTo: tabBarController.view.centerXAnchor)
+            ])
+        }
+    }
 
     func setupIsNotStartScreen() {
         isStartScreen = false
