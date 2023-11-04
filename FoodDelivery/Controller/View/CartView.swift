@@ -14,10 +14,10 @@ class CartView: UIView {
 
     let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.id)
+        tableView.register(ProductInCartTableViewCell.self, forCellReuseIdentifier: ProductInCartTableViewCell.id)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.isScrollEnabled = false
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
 
@@ -53,6 +53,7 @@ class CartView: UIView {
 
     init() {
         super.init(frame: CGRect())
+        setuptableView()
         backgroundColor = .white
         addSubviews([toPayButton,
                      noProducktsButtonBackGraund,
@@ -63,6 +64,10 @@ class CartView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        setupButtonActive()
     }
 }
 
@@ -79,24 +84,15 @@ extension CartView {
             noProducktsButtonBackGraund.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
             noProducktsButtonBackGraund.heightAnchor.constraint(equalToConstant: 48),
             noProducktsButtonText.centerXAnchor.constraint(equalTo: noProducktsButtonBackGraund.centerXAnchor),
-            noProducktsButtonText.centerYAnchor.constraint(equalTo: noProducktsButtonBackGraund.centerYAnchor)])
+            noProducktsButtonText.centerYAnchor.constraint(equalTo: noProducktsButtonBackGraund.centerYAnchor),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            tableView.bottomAnchor.constraint(equalTo: toPayButton.topAnchor)])
     }
 
     func setContent(mainModel: CartModel) {
         self.mainModel = mainModel
-        mainModel.setupComletion { [unowned self] in
-            if mainModel.productsInCart.isEmpty {
-                toPayButton.isHidden = true
-                noProducktsButtonBackGraund.isHidden = false
-                noProducktsButtonText.isHidden = false
-            } else {
-                self.toPayButton.setTitle("Оплатить \(mainModel.itogPrice) ₽", for: .normal)
-                toPayButton.isHidden = false
-                noProducktsButtonBackGraund.isHidden = true
-                noProducktsButtonText.isHidden = true
-            }
-            tableView.reloadData()
-        }
     }
 
     @objc
@@ -106,6 +102,29 @@ extension CartView {
 
     func setupCompletion(completion: @escaping ()->()) {
         self.completion = completion
+    }
+
+    private func payButtonDeActive() {
+        toPayButton.isHidden = true
+        noProducktsButtonBackGraund.isHidden = false
+        noProducktsButtonText.isHidden = false
+    }
+
+    private func payButtonActive() {
+        guard let mainModel else { return }
+        toPayButton.setTitle("Оплатить \(mainModel.itogPrice) ₽", for: .normal)
+        toPayButton.isHidden = false
+        noProducktsButtonBackGraund.isHidden = true
+        noProducktsButtonText.isHidden = true
+    }
+
+    func setupButtonActive() {
+        guard let mainModel else { return }
+        if mainModel.productsInCart.isEmpty {
+            payButtonDeActive()
+        } else {
+            payButtonActive()
+        }
     }
 }
 
@@ -117,25 +136,23 @@ extension CartView: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let mainModel else { return 0 }
+        guard let mainModel else { return 5 }
         return mainModel.productsInCart.count
     }
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.id, for: indexPath) as! CategoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductInCartTableViewCell.id, for: indexPath) as! ProductInCartTableViewCell
         guard let mainModel else { return cell }
-        cell.backgroundColor = .orange
-//        cell.setupCell(category: mainModel.categories.сategories[indexPath.row],
-//                       image: mainModel.images[indexPath.row])
+        cell.setupCell(productsInCart: mainModel.productsInCart[indexPath.row]) {
+            mainModel.addProducts(dish: mainModel.productsInCart[indexPath.row].dish)
+        } completionDelete: {
+            mainModel.deleteCountProduct(dish: mainModel.productsInCart[indexPath.row].dish)
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        (UIScreen.main.bounds.height - 200) / CGFloat(4)
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        78
     }
 }

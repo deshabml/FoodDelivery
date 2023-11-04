@@ -36,7 +36,7 @@ class CartScreenPresenter: CartScreenViewPresenterProtocol {
 
 final class CartModel {
 
-    var productsInCart: [(dish: Dish, count: Int)] = [] {
+    var productsInCart: [(dish: Dish, count: Int, image: UIImage)] = [] {
         didSet {
             completion?()
         }
@@ -61,7 +61,9 @@ final class CartModel {
                 return
             }
         }
-        productsInCart.append((dish: dish, count: 1))
+        guard let image = UIImage(systemName: "square.dashed") else { return }
+        productsInCart.append((dish: dish, count: 1, image: image))
+        getImage(dish: dish)
     }
 
     func deleteCountProduct(dish: Dish) {
@@ -78,5 +80,23 @@ final class CartModel {
 
     func setupComletion(completion: @escaping () -> ()) {
         self.completion = completion
+    }
+
+    private func getImage(dish: Dish) {
+        Task {
+            do {
+                let image = try await NetworkServiceAA.shared.downloadImage(url: dish.imageUrl)
+                DispatchQueue.main.async { [unowned self] in
+                    for index in 0 ..< self.productsInCart.count {
+                        if dish.id == self.productsInCart[index].dish.id {
+                            self.productsInCart[index].image = image
+                        }
+                    }
+                    completion?()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

@@ -16,7 +16,6 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         navigationBarSetting()
         presenter.showContent()
-
     }
 }
 
@@ -25,9 +24,14 @@ extension CartViewController: CartScreenViewProtocol {
     func setContent(mainModel: CartModel) {
         mainView.setContent(mainModel: mainModel)
         mainView.setupCompletion { [unowned self] in
+            mainModel.clearCart()
             let alert = UIAlertController(title: "Спасибо за покупку!", message: "Ваш заказ принят в работу", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel ))
             self.present(alert, animated: true, completion: nil)
+        }
+        mainModel.setupComletion { [unowned self] in
+            self.mainView.setupButtonActive()
+            self.mainView.tableView.reloadData()
         }
         view = mainView
     }
