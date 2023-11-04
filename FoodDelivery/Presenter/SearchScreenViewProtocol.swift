@@ -38,6 +38,7 @@ class SearchScreenPresenter: SearchScreenViewPresenterProtocol {
 
 final class SearchModel {
 
+    let cartModel: CartModel
     var dishes: Dishes = Dishes(dishes: [])
     var images: [UIImage] = [] {
         didSet {
@@ -62,7 +63,8 @@ final class SearchModel {
     var activeImage: UIImage = UIImage()
     private var completion: (() -> ())?
 
-    init() {
+    init(cartModel: CartModel) {
+        self.cartModel = cartModel
         getDishs()
     }
 
@@ -150,6 +152,10 @@ final class SearchModel {
                 }
             }
         }
+    }
+
+    func addProductToCert() {
+        cartModel.addProducts(dish: activeDish)
     }
 }
 

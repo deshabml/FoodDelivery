@@ -67,7 +67,7 @@ class SearchView: UIView {
         exitButton.configuration?.image = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(scale: .small))
         exitButton.configuration?.baseForegroundColor = .black
         exitButton.layer.cornerRadius = 10
-        exitButton.addTarget(self, action: #selector(addCartButtonAction), for: .touchUpInside)
+        exitButton.addTarget(self, action: #selector(exitDishView), for: .touchUpInside)
         return exitButton
     }()
 
@@ -213,7 +213,7 @@ extension SearchView {
         descriptionLabel.text = mainModel.activeDish.description
     }
 
-    @objc func addCartButtonAction() {
+    @objc func exitDishView() {
         UIView.animate(withDuration: 0.2,  animations: { [unowned self] in
             self.backView.alpha = 0
             self.backContentView.alpha = 0
@@ -239,5 +239,10 @@ extension SearchView {
     func likeButtonAction() {
         mainModel?.setupLike()
         setupColorLikeButton()
+    }
+
+    @objc
+    func addCartButtonAction() {
+        mainModel?.addProductToCert()
     }
 }

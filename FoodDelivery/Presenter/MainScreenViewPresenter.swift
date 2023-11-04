@@ -38,11 +38,15 @@ class MainScreenPresenter: MainScreenViewPresenterProtocol {
 
 final class MainModel {
 
+    let searchModel: SearchModel
+    let cartModel: CartModel
     var categories: Categorys = Categorys(сategories: [])
     var images: [UIImage] = []
     private var completion: (() -> ())?
 
-    init() {
+    init(searchModel: SearchModel, cartModel: CartModel) {
+        self.searchModel = searchModel
+        self.cartModel = cartModel
         getCategories()
     }
 

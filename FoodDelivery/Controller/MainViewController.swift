@@ -26,7 +26,7 @@ extension MainViewController: MainScreenViewProtocol {
     func setContent(mainModel: MainModel) {
         mainView.setContent(mainModel: mainModel)
         mainView.setupCompletion { [unowned self] name in
-            let mainModel = SearchModel()
+            let mainModel = mainModel.searchModel
             let view = SearchViewController()
             let presenter = SearchScreenPresenter(view: view, mainModel: mainModel)
             view.presenter = presenter
