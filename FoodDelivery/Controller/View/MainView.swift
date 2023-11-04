@@ -79,7 +79,6 @@ extension MainView: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         completion?(mainModel?.categories.сategories[indexPath.row].name ?? "")
     }
 }

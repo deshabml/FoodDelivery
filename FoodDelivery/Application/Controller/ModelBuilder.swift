@@ -43,7 +43,11 @@ class ModelBuilder: Builder {
     }
 
     private static func createCartController() -> UINavigationController {
-        let cvc = UINavigationController(rootViewController: CartViewController())
+        let mainModel = cartModel
+        let view = CartViewController()
+        let presenter = CartScreenPresenter(view: view, mainModel: mainModel)
+        view.presenter = presenter
+        let cvc = UINavigationController(rootViewController: view)
         cvc.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(named: "CartBar"), tag: 1)
         return cvc
     }

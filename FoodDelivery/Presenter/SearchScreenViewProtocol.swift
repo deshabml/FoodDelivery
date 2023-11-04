@@ -22,7 +22,6 @@ protocol SearchScreenViewPresenterProtocol {
 class SearchScreenPresenter: SearchScreenViewPresenterProtocol {
 
     let view: SearchScreenViewProtocol
-
     let mainModel: SearchModel
 
     required init(view: SearchScreenViewProtocol, mainModel: SearchModel) {

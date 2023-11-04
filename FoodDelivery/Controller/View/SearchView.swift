@@ -189,8 +189,7 @@ extension SearchView {
             descriptionLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: backContentView.leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: backContentView.trailingAnchor, constant: -16),
-            descriptionLabel.bottomAnchor.constraint(equalTo: addCartButton.topAnchor, constant: -16)
-        ])
+            descriptionLabel.bottomAnchor.constraint(equalTo: addCartButton.topAnchor, constant: -16)])
     }
 
     private func createDishView() {

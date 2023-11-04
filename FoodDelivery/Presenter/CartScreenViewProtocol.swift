@@ -16,13 +16,12 @@ protocol CartScreenViewPresenterProtocol {
 
     init(view: CartScreenViewProtocol, mainModel: CartModel)
 
-    func showContent(completion: @escaping () -> ())
+    func showContent()
 }
 
 class CartScreenPresenter: CartScreenViewPresenterProtocol {
 
     let view: CartScreenViewProtocol
-
     let mainModel: CartModel
 
     required init(view: CartScreenViewProtocol, mainModel: CartModel) {
@@ -30,14 +29,18 @@ class CartScreenPresenter: CartScreenViewPresenterProtocol {
         self.mainModel = mainModel
     }
 
-    func showContent(completion: @escaping () -> ()) {
+    func showContent() {
         view.setContent(mainModel: mainModel)
     }
 }
 
 final class CartModel {
 
-    var productsInCart: [(dish: Dish, count: Int)] = []
+    var productsInCart: [(dish: Dish, count: Int)] = [] {
+        didSet {
+            completion?()
+        }
+    }
     var itogPrice: Int {
         var sum = 0
         productsInCart.forEach { product in
@@ -45,6 +48,7 @@ final class CartModel {
         }
         return sum
     }
+    private var completion: (() -> ())?
 
     func clearCart() {
         productsInCart = []
@@ -70,5 +74,9 @@ final class CartModel {
                 productsInCart = productsInCart.filter { $0.dish.id != dish.id }
             }
         }
+    }
+
+    func setupComletion(completion: @escaping () -> ()) {
+        self.completion = completion
     }
 }
