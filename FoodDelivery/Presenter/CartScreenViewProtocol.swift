@@ -39,6 +39,7 @@ final class CartModel {
     var productsInCart: [(dish: Dish, count: Int, image: UIImage)] = [] {
         didSet {
             completion?()
+            completionTabBarVolume?()
         }
     }
     var itogPrice: Int {
@@ -48,7 +49,16 @@ final class CartModel {
         }
         return sum
     }
+    var cartBadgeValue: Int {
+        var sum = 0
+        productsInCart.forEach { product in
+            sum += product.count
+        }
+        return sum
+    }
     private var completion: (() -> ())?
+    private var completionTabBarVolume: (() -> ())?
+
 
     func clearCart() {
         productsInCart = []
@@ -67,19 +77,26 @@ final class CartModel {
     }
 
     func deleteCountProduct(dish: Dish) {
+        var idexDelete: Int? = nil
         for index in 0 ..< productsInCart.count {
             if productsInCart[index].dish.id == dish.id {
-                guard productsInCart[index].count <= 1 else {
-                    productsInCart[index].count -= 1
-                    return
-                }
-                productsInCart = productsInCart.filter { $0.dish.id != dish.id }
+                idexDelete = index
             }
         }
+        guard let idexDelete else { return }
+        guard productsInCart[idexDelete].count <= 1 else {
+            productsInCart[idexDelete].count -= 1
+            return
+        }
+        productsInCart = productsInCart.filter { $0.dish.id != dish.id }
     }
 
     func setupComletion(completion: @escaping () -> ()) {
         self.completion = completion
+    }
+
+    func setupCompletionTabBarVolume(completionTabBarVolume: @escaping () -> ()) {
+        self.completionTabBarVolume = completionTabBarVolume
     }
 
     private func getImage(dish: Dish) {

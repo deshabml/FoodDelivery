@@ -32,6 +32,9 @@ extension CartViewController: CartScreenViewProtocol {
         mainModel.setupComletion { [unowned self] in
             self.mainView.setupButtonActive()
             self.mainView.tableView.reloadData()
+            if let tabBarController {
+                tabBarController.tabBarItem.badgeValue = "\(mainModel.productsInCart.count)"
+            }
         }
         view = mainView
     }

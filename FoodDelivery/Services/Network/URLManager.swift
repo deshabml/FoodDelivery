@@ -29,5 +29,5 @@ enum Server: String {
 enum EndPoint: String {
 
     case categorys = "/v3/b3e33160-24b4-4961-926f-6956d679551b"
-    case dishes = "/v3/6b8ad64e-5441-47d4-bf45-fd267adf1f5d"
+    case dishes = "/v3/40cb72ab-cca2-403c-a0e5-a4863d74b038"
 }
