@@ -22,7 +22,6 @@ protocol MainScreenViewPresenterProtocol {
 class MainScreenPresenter: MainScreenViewPresenterProtocol {
 
     let view: MainScreenViewProtocol
-
     let mainModel: MainModel
 
     required init(view: MainScreenViewProtocol, mainModel: MainModel) {

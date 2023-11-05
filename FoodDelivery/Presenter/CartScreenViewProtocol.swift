@@ -16,13 +16,12 @@ protocol CartScreenViewPresenterProtocol {
 
     init(view: CartScreenViewProtocol, mainModel: CartModel)
 
-    func showContent(completion: @escaping () -> ())
+    func showContent()
 }
 
 class CartScreenPresenter: CartScreenViewPresenterProtocol {
 
     let view: CartScreenViewProtocol
-
     let mainModel: CartModel
 
     required init(view: CartScreenViewProtocol, mainModel: CartModel) {
@@ -30,14 +29,19 @@ class CartScreenPresenter: CartScreenViewPresenterProtocol {
         self.mainModel = mainModel
     }
 
-    func showContent(completion: @escaping () -> ()) {
+    func showContent() {
         view.setContent(mainModel: mainModel)
     }
 }
 
 final class CartModel {
 
-    var productsInCart: [(dish: Dish, count: Int)] = []
+    var productsInCart: [(dish: Dish, count: Int, image: UIImage)] = [] {
+        didSet {
+            completion?()
+            completionTabBarVolume?()
+        }
+    }
     var itogPrice: Int {
         var sum = 0
         productsInCart.forEach { product in
@@ -45,6 +49,16 @@ final class CartModel {
         }
         return sum
     }
+    var cartBadgeValue: Int {
+        var sum = 0
+        productsInCart.forEach { product in
+            sum += product.count
+        }
+        return sum
+    }
+    private var completion: (() -> ())?
+    private var completionTabBarVolume: (() -> ())?
+
 
     func clearCart() {
         productsInCart = []
@@ -57,17 +71,48 @@ final class CartModel {
                 return
             }
         }
-        productsInCart.append((dish: dish, count: 1))
+        guard let image = UIImage(systemName: "square.dashed") else { return }
+        productsInCart.append((dish: dish, count: 1, image: image))
+        getImage(dish: dish)
     }
 
     func deleteCountProduct(dish: Dish) {
+        var idexDelete: Int? = nil
         for index in 0 ..< productsInCart.count {
             if productsInCart[index].dish.id == dish.id {
-                guard productsInCart[index].count <= 1 else {
-                    productsInCart[index].count -= 1
-                    return
+                idexDelete = index
+            }
+        }
+        guard let idexDelete else { return }
+        guard productsInCart[idexDelete].count <= 1 else {
+            productsInCart[idexDelete].count -= 1
+            return
+        }
+        productsInCart = productsInCart.filter { $0.dish.id != dish.id }
+    }
+
+    func setupComletion(completion: @escaping () -> ()) {
+        self.completion = completion
+    }
+
+    func setupCompletionTabBarVolume(completionTabBarVolume: @escaping () -> ()) {
+        self.completionTabBarVolume = completionTabBarVolume
+    }
+
+    private func getImage(dish: Dish) {
+        Task {
+            do {
+                let image = try await NetworkServiceAA.shared.downloadImage(url: dish.imageUrl)
+                DispatchQueue.main.async { [unowned self] in
+                    for index in 0 ..< self.productsInCart.count {
+                        if dish.id == self.productsInCart[index].dish.id {
+                            self.productsInCart[index].image = image
+                        }
+                    }
+                    completion?()
                 }
-                productsInCart = productsInCart.filter { $0.dish.id != dish.id }
+            } catch {
+                print(error.localizedDescription)
             }
         }
     }

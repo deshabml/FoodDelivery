@@ -43,14 +43,25 @@ class ModelBuilder: Builder {
     }
 
     private static func createCartController() -> UINavigationController {
-        let cvc = UINavigationController(rootViewController: CartViewController())
-        cvc.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(named: "CartBar"), tag: 1)
+        let mainModel = cartModel
+        let view = CartViewController()
+        let presenter = CartScreenPresenter(view: view, mainModel: mainModel)
+        view.presenter = presenter
+        let cvc = UINavigationController(rootViewController: view)
+        cvc.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(named: "CartBar"), tag: 2)
+        mainModel.setupCompletionTabBarVolume {
+            if !mainModel.productsInCart.isEmpty {
+                cvc.tabBarItem.badgeValue = "\(mainModel.cartBadgeValue)"
+            } else {
+                cvc.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(named: "CartBar"), tag: 2)
+            }
+        }
         return cvc
     }
 
     private static func createAccounthController() -> UINavigationController {
         let avc = UINavigationController(rootViewController: AccountViewController())
-        avc.tabBarItem = UITabBarItem(title: "Аккаунт", image: UIImage(named: "AccountBar"), tag: 1)
+        avc.tabBarItem = UITabBarItem(title: "Аккаунт", image: UIImage(named: "AccountBar"), tag: 3)
         return avc
     }
 

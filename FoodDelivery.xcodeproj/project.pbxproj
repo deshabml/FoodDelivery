@@ -19,6 +19,8 @@
 		DDB31A262AF4E26300C01FA3 /* DishesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A252AF4E26300C01FA3 /* DishesCollectionView.swift */; };
 		DDB31A282AF4E2F900C01FA3 /* DishViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A272AF4E2F900C01FA3 /* DishViewCell.swift */; };
 		DDB31A2A2AF64F8200C01FA3 /* CartScreenViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A292AF64F8200C01FA3 /* CartScreenViewProtocol.swift */; };
+		DDB31A2C2AF65F9300C01FA3 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A2B2AF65F9300C01FA3 /* CartView.swift */; };
+		DDB31A2E2AF6B8CC00C01FA3 /* ProductInCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB31A2D2AF6B8CC00C01FA3 /* ProductInCartTableViewCell.swift */; };
 		DDB4DF3A2AEED1720051E49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF392AEED1720051E49E /* AppDelegate.swift */; };
 		DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */; };
 		DDB4DF432AEED1740051E49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB4DF422AEED1740051E49E /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		DDB31A252AF4E26300C01FA3 /* DishesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesCollectionView.swift; sourceTree = "<group>"; };
 		DDB31A272AF4E2F900C01FA3 /* DishViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewCell.swift; sourceTree = "<group>"; };
 		DDB31A292AF64F8200C01FA3 /* CartScreenViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartScreenViewProtocol.swift; sourceTree = "<group>"; };
+		DDB31A2B2AF65F9300C01FA3 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		DDB31A2D2AF6B8CC00C01FA3 /* ProductInCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInCartTableViewCell.swift; sourceTree = "<group>"; };
 		DDB4DF362AEED1720051E49E /* FoodDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB4DF392AEED1720051E49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB4DF3B2AEED1720051E49E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 				DDB31A212AF4044D00C01FA3 /* TagsViewCell.swift */,
 				DDB31A252AF4E26300C01FA3 /* DishesCollectionView.swift */,
 				DDB31A272AF4E2F900C01FA3 /* DishViewCell.swift */,
+				DDB31A2D2AF6B8CC00C01FA3 /* ProductInCartTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			children = (
 				DDB4DF602AEEF5D90051E49E /* MainView.swift */,
 				DDB31A1D2AF3C22700C01FA3 /* SearchView.swift */,
+				DDB31A2B2AF65F9300C01FA3 /* CartView.swift */,
 				DD5BA3E62AEFE7220034DE1F /* Components */,
 			);
 			path = View;
@@ -328,6 +334,7 @@
 				DD5BA3E12AEFBB190034DE1F /* LeftCustomNavigationView.swift in Sources */,
 				DDB31A202AF403C400C01FA3 /* TagsCollectionView.swift in Sources */,
 				DD5BA3E52AEFE4FD0034DE1F /* RightCustomNavigationView.swift in Sources */,
+				DDB31A2E2AF6B8CC00C01FA3 /* ProductInCartTableViewCell.swift in Sources */,
 				DDB4DF3C2AEED1720051E49E /* SceneDelegate.swift in Sources */,
 				DDB4DF592AEED6D80051E49E /* AccountViewController.swift in Sources */,
 				DD5BA3EC2AEFF0D60034DE1F /* CategoryTableViewCell.swift in Sources */,
@@ -340,6 +347,7 @@
 				DDB4DF552AEED63F0051E49E /* SearchViewController.swift in Sources */,
 				DDB4DF532AEED5D00051E49E /* MainViewController.swift in Sources */,
 				DDB31A2A2AF64F8200C01FA3 /* CartScreenViewProtocol.swift in Sources */,
+				DDB31A2C2AF65F9300C01FA3 /* CartView.swift in Sources */,
 				DDB7E4AF2AF0089D005AC87F /* URLManager.swift in Sources */,
 				DDB31A222AF4044D00C01FA3 /* TagsViewCell.swift in Sources */,
 				DD5BA3E32AEFCB460034DE1F /* UIViewController+navigationBarSetting.swift in Sources */,
